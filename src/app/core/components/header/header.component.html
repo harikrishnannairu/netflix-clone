@@ -1,0 +1,36 @@
+<header class="bg-main sticky top-0 flex flex-col lg:flex-row  items-center justify-between" >
+<div class="desktop-view flex justify-between">
+    <div class="flex content-center flex-wrap gap-5">
+        <img class="h-[40px]"src="/assets/netflix-logo2.jpg" alt="netflix-logo">
+        <ul class="flex content-center flex-wrap space-x-5 lg:space-x-0 lg:ml-5" *ngFor="let item of navList">
+            <li class="text-neutral-200 cursor-pointer text-sm font-extra-light hover:text-gray-400 transition-[1s]">{{item}}</li>
+        </ul>
+    </div>
+    <div class="text-white pr-2.5 flex items-center gap-4" >
+        <div class="flex items-center gap-2.5">
+            <p>Welcome {{profileCardData.name}}</p>
+            <img class="w-10 h-10 rounded-[50%] cursor-pointer" [src]="userImg" alt="" (click)="OnProfileClick()">
+        </div>
+        &nbsp; | &nbsp;
+       <p>Sign Out</p>
+    </div>
+    </div>
+    <div class="mobile-view">
+        <div class="menu-section flex content-center flex-wrap">
+
+            <a  class="icon" (click)="toggleMenu()">
+                <!-- <i class="fa-solid fa-bars fa-flip"></i> -->
+                <fa-icon [icon]="['fas', 'bars']"></fa-icon> <!-- Example of using the "bars" icon for the menu bar -->
+
+            </a>
+            <img class="h-[40px]"src="/assets/netflix-logo2.jpg" alt="netflix-logo">
+        </div>
+        <div class="nav-items " [ngStyle]="{ 'display': isMenuDisplay ? 'flex' : 'none' }" id="myLinks">
+            <ul *ngFor="let item of navList">
+                <li class="text-neutral-200 cursor-pointer text-sm font-extra-light hover:text-gray-400 transition-[1s]">{{item}}</li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+

@@ -1,0 +1,23 @@
+iframe{
+    width:100%;
+    height:100%;
+    position:absolute;
+}
+.action-btn{
+    display: flex;
+    flex-direction:row;
+    gap:8px;
+    .info-btn{
+        background-color: #232222;
+    }
+}
+@media(max-width:540px){
+    .content{
+        padding-left:3px !important;
+        padding-right:1px !important;
+        .text-content{
+            width:100% !important;
+            font-size: 16px !important;
+        }
+    }
+}

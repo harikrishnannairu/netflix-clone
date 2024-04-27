@@ -1,0 +1,53 @@
+<div class="flex  h-full flex-col">
+<app-header
+[userImg]="profileCardData.picture"
+[profileCardData]="profileCardData"
+(profileClicked)="profileHeaderIconClicked()"
+/>
+<!-- profile card component -->
+<ng-container *ngIf="showProfileCard">
+<app-profile-card
+[profileCardData]="profileCardData"
+(signOutEvent)="signOut()"></app-profile-card>
+</ng-container>
+<ng-container *ngIf="!showProfileCard">
+<div class="flex flex-col gap-2.5">
+<!-- <div> -->
+<app-banner class="relative"
+[bannerOverView]="bannerDetails?.overview"
+[bannerTitle]="bannerDetails?.original_title"
+[bannerVideoKey]="bannerVideoKey"
+></app-banner>
+<!-- </div>
+<div> -->
+<app-movie-carousel
+[title]="' Movies'"
+[movieList]="movies"
+(movieClicked)="movieClicked($event)"></app-movie-carousel>
+<app-movie-carousel
+[title]="'TV Shows'"
+[movieList]="tvShows"
+(movieClicked)="movieClicked($event)"></app-movie-carousel>
+<!-- <app-movie-carousel
+[title]="'Top Rated Movies'"
+[movieList]="topRatedMovies"></app-movie-carousel> -->
+<app-movie-carousel
+[title]="'Now Playing'"
+[movieList]="nowPlayingMovies"
+(movieClicked)="movieClicked($event)"></app-movie-carousel>
+<app-movie-carousel
+[title]="'Upcoming Movies'"
+[movieList]="upcomingMovies"
+(movieClicked)="movieClicked($event)"></app-movie-carousel>
+<app-movie-carousel
+[title]="'Popular Movies'"
+[movieList]="popularMovies"
+(movieClicked)="movieClicked($event)"></app-movie-carousel>
+<app-movie-carousel
+[title]="'Top Rated'"
+[movieList]="topRated"
+(movieClicked)="movieClicked($event)"></app-movie-carousel>
+<!-- </div> -->
+</div>
+</ng-container>
+</div>
